@@ -16,7 +16,7 @@ spec:
               app: mi-app-deployment-2  # Permite solo el tráfico proveniente de micro-a
       ports:
         - protocol: TCP
-          port: 4000  # Puerto de destino en micro-b (ajústalo según tu app)
+          port: 3000  # Puerto de destino en micro-b (ajústalo según tu app)
 
 ---
 
@@ -38,4 +38,4 @@ spec:
               app: mi-app-deployment  # Permite solo el tráfico proveniente de micro-a
       ports:
         - protocol: TCP
-          port: 4000  # Puerto de destino en micro-b (ajústalo según tu app)
+          port: 3000  # Puerto de destino en micro-b (ajústalo según tu app)
