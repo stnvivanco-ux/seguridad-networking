@@ -1,29 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-micro-a-to-micro-b
-  namespace: stnvivanco92-dev
-spec:
-  podSelector:
-    matchLabels:
-      app: mi-app-deployment  # Aplica esta política a los pods etiquetados como micro-b
-  policyTypes:
-    - Egress
-  egress:
-    - to:
-        - podSelector:
-            matchLabels:
-              app: mi-app-deployment-2  # Permite solo el tráfico proveniente de micro-a
-      ports:
-        - protocol: TCP
-          port: 3000  # Puerto de destino en micro-b (ajústalo según tu app)
-
----
-
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-micro-a-to-micro-b
+  name: allow-micro-a-to-micro-b-ingress
   namespace: stnvivanco92-dev
 spec:
   podSelector:
@@ -31,7 +9,7 @@ spec:
       app: mi-app-deployment-2  # Aplica esta política a los pods etiquetados como micro-b
   policyTypes:
     - Ingress
-  egress:
+  ingress:
     - from:
         - podSelector:
             matchLabels:
