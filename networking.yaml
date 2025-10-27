@@ -6,14 +6,14 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: mi-app-deployment-2  # Aplica esta política a los pods etiquetados como micro-b
+      app: mi-app-2  # Aplica esta política a los pods etiquetados como micro-b
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app: mi-app-deployment  # Permite solo el tráfico proveniente de micro-a
+              app: mi-app  # Permite solo el tráfico proveniente de micro-a
       ports:
         - protocol: TCP
           port: 3000  # Puerto de destino en micro-b (ajústalo según tu app)
